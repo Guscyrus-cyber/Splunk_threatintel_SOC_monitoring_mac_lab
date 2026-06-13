@@ -153,7 +153,7 @@ The investigation identified five high-severity threat indicators. These indicat
 
 Query:
 
-index=threatintel threat_type=Threat_Actor**\
+index=threatintel threat_type=Threat_Actor
 
 . Which indicators are associated with known threat actor?
 
