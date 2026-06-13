@@ -8,8 +8,6 @@ The goal of this lab is to ingest threat intelligence data into Splunk Enterpris
 
 Description: Create a dedicated Splunk index to store threat intelligence indicators and threat-hunting data.
 
-\
-\
 **Upload Threat Intelligence Dataset**
 
 Dataset: threatintel.log
@@ -23,14 +21,9 @@ Description: Ingest threat intelligence indicators for monitoring and threat det
 
 Query: index=threatintel
 
+. Was the threat intelligence dataset successfully ingested into Splunk? Yes\
 \
-\**
-\
-\**
-\
-.** Was the threat intelligence dataset successfully ingested into Splunk? Yes\
-\
-**.** How many threat intelligence indicators exist in the dataset? 10 indicators
+. How many threat intelligence indicators exist in the dataset? 10 indicators
 
 | **threat_type**  | **indicator**         | **severity**  |
 |------------------|-----------------------|---------------|
@@ -48,17 +41,15 @@ Query: index=threatintel
 The threat intelligence dataset was successfully ingested into Splunk Enterprise with 10 events. Splunk automatically extracted key fields including indicator, threat_type, severity, and description. The dataset contains malicious IP addresses, malicious domains, phishing indicators, botnet infrastructure, a malware hash, a simulated threat actor, and benign indicators for comparison. The results confirm that the threat intelligence feed is searchable and ready for IOC monitoring, alerting, detection rules, dashboards, reports, and threat-hunting analysis.\
 The presence of benign indicators such as 8.8.8.8 and github.com provides comparison data, while high-risk indicators such as evil-c2.net, 45.33.32.156, botnet-controller.net, and maliciousdomain.com represent simulated threats for detection and investigation practice.
 
-**\
-Verifying Event Count**
+
+**Verifying Event Count**
 
 Query:\
 \
 index=threatintel\
 \| stats count
 
-
-**\
-.** How many threat intelligence events were ingested into Splunk? 10
+. How many threat intelligence events were ingested into Splunk? 10
 
 **Review Threat Intelligence Data**
 
@@ -67,13 +58,11 @@ Query:
 index=threatintel\
 \| table \_time host sourcetype \_raw
 
-\
-.** What threat indicators are present in the environment?
+. What threat indicators are present in the environment?
 
 The threat intelligence dataset contains a mixture of malicious and benign indicators. The malicious indicators include two malicious IP addresses (123.123.123.123, 45.33.32.156), two malicious domains (maliciousdomain.com, evil-c2.net), one phishing domain (fakebank-login.com), one botnet controller (botnet-controller.net), one malware hash (ABC123XYZ), and one threat actor identifier (APT-Shadow). The dataset also includes two benign indicators (8.8.8.8 and github.com) for comparison and validation purposes.\
 \
-\
-**.** Which indicators are available for investigation?\
+. Which indicators are available for investigation?\
 \
 The following indicators are available for investigation:
 
@@ -99,19 +88,12 @@ Query:
 index=threatintel\
 malicious
 
-**\
-\
-\
-\
-\**
-\
-\
-.** Which source IP addresses are identified as known malicious indicators?
+. Which source IP addresses are identified as known malicious indicators?
 
 123.123.123.123\
 45.33.32.156\
 \
-**.** Which IP addresses should be prioritized for investigation?\
+. Which IP addresses should be prioritized for investigation?\
 \
 Priority Order:
 
@@ -124,17 +106,13 @@ index=threatintel
 
 domain
 
-**\
-\
-\**
-\
-\
-.** Which domains have been identified as suspicious or malicious?
+
+. Which domains have been identified as suspicious or malicious?
 
 evil-c2.net\
 maliciousdomain.com\
 \
-**.** Are known malicious domains present in the threat intelligence feed?
+. Are known malicious domains present in the threat intelligence feed?
 
 1\. Command-and-Control (C2) infrastructure\
 2. Malware distribution activity
@@ -148,16 +126,7 @@ Query:
 index=threatintel\
 high
 
-\
-\**
-\
-\
-\
-\
-\
-\**
-\
-.** Which indicators are classified as high-risk threats?
+. Which indicators are classified as high-risk threats?
 
 The following indicators are classified with **High severity** and are considered high-risk threats:
 
@@ -169,7 +138,7 @@ The following indicators are classified with **High severity** and are considere
 | Malicious_Domain | maliciousdomain.com | Malware Distribution Domain      |
 | Malicious_IP     | 123.123.123.123     | Known Command and Control Server |
 
-**.** Which threat indicators require immediate analyst attention? \|\
+. Which threat indicators require immediate analyst attention? \|\
 The indicators required immediate analyst attention because they are associated with ransomware activity, phishing infrastructure, threat actor infrastructure, malware distribution, and command-and-control communication\
 \
 ABC123XYZ\
@@ -180,63 +149,45 @@ maliciousdomain.com\
 
 The investigation identified five high-severity threat indicators. These indicators represent malware, phishing infrastructure, threat actor activity, malicious domains, and command-and-control infrastructure. Any occurrence of these indicators within DNS logs, firewall logs, TLS traffic, endpoint logs, or threat intelligence matches should be prioritized for investigation and potential incident response.**\
 \
-Search for Known Attackers**
+**Search for Known Attackers**
 
 Query:
 
 index=threatintel threat_type=Threat_Actor**\
-\**
-\
-.** Which indicators are associated with known threat actor?
+
+. Which indicators are associated with known threat actor?
 
 “APT-Shadow” associated with known threat actor.\
 \
-**.** Which threat actors have been observed in the dataset?\
+. Which threat actors have been observed in the dataset?\
 \
 “APT-Shadow” was the only threat actor identified in the threat intelligence dataset and is classified as **High severity**.
 
-**\
-Visualization and panel**
+
+**Visualization and panel**
 
 Query:
 
-\
-\**
-\**
-\
-\
-**.** How many threat intelligence indicators are currently being monitored?\
+
+. How many threat intelligence indicators are currently being monitored?\
+
 A total of 10 threat intelligence indicators are currently being monitored. The indicators include malicious IP addresses, malicious domains, phishing infrastructure, botnet infrastructure, a malware hash, a threat actor identifier, and benign indicators used for comparison.
 
-**.** What is the total volume of threat intelligence events?\
+. What is the total volume of threat intelligence events?\
 The threat intelligence dataset contains 10 events.
 
-**\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-Report**
 
-**.** What threat indicators were identified during the investigation?
+**Report**
 
-**.** Which indicators should be documented for future monitoring?
+. What threat indicators were identified during the investigation?
+
+. Which indicators should be documented for future monitoring?
 
 Query:
 
 index=threatintel
 
-\
-\
-Dashboard**
+**Dashboard**
 
 Query:
 
@@ -245,26 +196,25 @@ index=threatintel\
 
 \
 \
-.** What threat intelligence indicators are currently available for monitoring?\
+. What threat intelligence indicators are currently available for monitoring?\
 \
 The threat intelligence dataset contains 10 indicators available for monitoring, including malicious IP addresses, malicious domains, phishing infrastructure, botnet infrastructure, a malware hash, a threat actor identifier, and benign reference indicators. These indicators can be used for detection, alerting, IOC matching, and threat-hunting investigations.
 
-**.** What is the current threat landscape represented in the dataset?\
+. What is the current threat landscape represented in the dataset?\
 \
 The current threat landscape includes command-and-control infrastructure, malware distribution domains, phishing activity, botnet infrastructure, ransomware indicators, and threat actor infrastructure. The dataset contains both high-risk and critical-severity indicators, along with benign indicators used to distinguish legitimate activity from potentially malicious activity.
 
-**\
-\
-Alert**
+
+**Alert**
 
 Query:
 
 index=threatintel\
 malicious
 
-\**
-Has a known malicious indicator been detected?\
-\
+
+. Has a known malicious indicator been detected?\
+
 Yes. The alert identified the following known malicious indicators:
 
 123.123.123.123\
@@ -273,9 +223,9 @@ maliciousdomain.com\
 evil-c2.net
 
 These indicators are associated with command-and-control infrastructure, botnet activity, and malware distribution\
-\
-Are there threat indicators requiring analyst notification?\
-\
+
+. Are there threat indicators requiring analyst notification?\
+
 Yes. Several threat indicators require analyst notification and monitoring, including:
 
 123.123.123.123 (Known Command and Control Server)\
@@ -294,10 +244,7 @@ index=threatintel\
 
 Detection Name: Threat Intelligence Detection
 
-\
-\**
-\**
-Can known malicious indicators be automatically detected?\
+. Can known malicious indicators be automatically detected?\
 \
 Yes. The threat intelligence dataset contains known malicious indicators that can be automatically detected through Splunk searches, alerts, detection rules, and IOC matching. Examples include malicious IP addresses, malicious domains, botnet infrastructure, phishing domains, and threat actor indicators.
 
@@ -323,9 +270,8 @@ ABC123XYZ (Ransomware Sample)\
 \
 The detection rule successfully identified multiple high-risk and critical indicators within the threat intelligence feed. These indicators represent command-and-control infrastructure, malware distribution activity, phishing infrastructure, botnet activity, ransomware indicators, and threat actor infrastructure, all of which should be prioritized for monitoring and investigation.
 
-**\
-\
-Threat Hunting**
+
+**Threat Hunting**
 
 Which indicators represent the highest risk to the environment?
 
@@ -340,9 +286,7 @@ Query:
 index=threatintel\
 \| table \_time host sourcetype \_raw
 
-\
-\
-Which indicators represent the highest risk to the environment?
+. Which indicators represent the highest risk to the environment?
 
 The highest-risk indicators are:
 
@@ -364,9 +308,8 @@ fakebank-login.com\
 botnet-controller.net
 
 These indicators are associated with command-and-control activity, malware distribution, phishing infrastructure, and botnet operations.\
-\
-\
-Which indicators should be escalated for incident response?\
+
+. Which indicators should be escalated for incident response?\
 \
 The indicators that should be escalated are:
 
@@ -390,65 +333,12 @@ botnet-controller.net (Botnet Controller)\
 ABC123XYZ (Ransomware Sample)\
 APT-Shadow (Threat Actor Infrastructure)
 
-### \
-Analyst Assessment
+**Analyst Assessment**
 
 Threat-hunting analysis identified multiple high-risk and critical threat indicators associated with command-and-control infrastructure, malware distribution, phishing activity, botnet operations, ransomware, and threat actor infrastructure. Any occurrence of these indicators within operational logs should be treated as a potential security incident and investigated immediately.
 
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
 
-Bottom of Form
+
+
+
+
