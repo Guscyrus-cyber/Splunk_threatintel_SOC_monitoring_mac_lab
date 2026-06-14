@@ -8,6 +8,8 @@ The goal of this lab is to ingest threat intelligence data into Splunk Enterpris
 
 Description: Create a dedicated Splunk index to store threat intelligence indicators and threat-hunting data.
 
+Please refer to image # 1 in the repository.
+
 **Upload Threat Intelligence Dataset**
 
 Dataset: threatintel.log
@@ -15,6 +17,8 @@ Dataset: threatintel.log
 Index: threatintel
 
 Description: Ingest threat intelligence indicators for monitoring and threat detection activities.
+
+Please refer to image # 2 in the repository.
 
 
 **Verifying Ingestion and Indicators**
@@ -41,6 +45,8 @@ Query: index=threatintel
 The threat intelligence dataset was successfully ingested into Splunk Enterprise with 10 events. Splunk automatically extracted key fields including indicator, threat_type, severity, and description. The dataset contains malicious IP addresses, malicious domains, phishing indicators, botnet infrastructure, a malware hash, a simulated threat actor, and benign indicators for comparison. The results confirm that the threat intelligence feed is searchable and ready for IOC monitoring, alerting, detection rules, dashboards, reports, and threat-hunting analysis.\
 The presence of benign indicators such as 8.8.8.8 and github.com provides comparison data, while high-risk indicators such as evil-c2.net, 45.33.32.156, botnet-controller.net, and maliciousdomain.com represent simulated threats for detection and investigation practice.
 
+Please refer to images # 3 through 5 in the repository.
+
 
 **Verifying Event Count**
 
@@ -50,6 +56,8 @@ index=threatintel\
 \| stats count
 
 . How many threat intelligence events were ingested into Splunk? 10
+
+Please refer to image # 6 in the repository.
 
 **Review Threat Intelligence Data**
 
