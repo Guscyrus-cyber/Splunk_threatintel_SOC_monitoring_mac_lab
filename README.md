@@ -45,7 +45,7 @@ Query: index=threatintel
 The threat intelligence dataset was successfully ingested into Splunk Enterprise with 10 events. Splunk automatically extracted key fields including indicator, threat_type, severity, and description. The dataset contains malicious IP addresses, malicious domains, phishing indicators, botnet infrastructure, a malware hash, a simulated threat actor, and benign indicators for comparison. The results confirm that the threat intelligence feed is searchable and ready for IOC monitoring, alerting, detection rules, dashboards, reports, and threat-hunting analysis.\
 The presence of benign indicators such as 8.8.8.8 and github.com provides comparison data, while high-risk indicators such as evil-c2.net, 45.33.32.156, botnet-controller.net, and maliciousdomain.com represent simulated threats for detection and investigation practice.
 
-Please refer to images # 3 through 5 in the repository.
+Please refer to images # 3, 4, and 5 in the repository.
 
 
 **Verifying Event Count**
@@ -89,6 +89,8 @@ The following indicators are available for investigation:
 
 These indicators can be investigated to determine whether any systems have communicated with known malicious infrastructure, accessed suspicious domains, been associated with threat actor activity, or exhibited indicators of malware infection. The benign indicators provide a baseline for distinguishing legitimate activity from potentially malicious activity.
 
+Please refer to image # 7 in the repository.
+
 **Identifying Malicious IP Addresses**
 
 Query:
@@ -108,6 +110,8 @@ Priority Order:
 45.33.32.156 — Critical (Botnet Infrastructure)\
 123.123.123.123 — High (Known Command and Control Server)
 
+Please refer to image # 8 in the repository.
+
 **Searching for Suspicious Domains**
 
 index=threatintel
@@ -126,6 +130,8 @@ maliciousdomain.com\
 2. Malware distribution activity
 
 These two malicious domains and should be prioritized for investigation.
+
+Please refer to image # 9 in the repository.
 
 **Identify High-Risk Threats**
 
@@ -155,7 +161,9 @@ APT-Shadow\
 maliciousdomain.com\
 123.123.123.123
 
-The investigation identified five high-severity threat indicators. These indicators represent malware, phishing infrastructure, threat actor activity, malicious domains, and command-and-control infrastructure. Any occurrence of these indicators within DNS logs, firewall logs, TLS traffic, endpoint logs, or threat intelligence matches should be prioritized for investigation and potential incident response.**\
+The investigation identified five high-severity threat indicators. These indicators represent malware, phishing infrastructure, threat actor activity, malicious domains, and command-and-control infrastructure. Any occurrence of these indicators within DNS logs, firewall logs, TLS traffic, endpoint logs, or threat intelligence matches should be prioritized for investigation and potential incident response.
+
+Please refer to images # 10, 11, and 12 in the repository.
 \
 **Search for Known Attackers**
 
@@ -171,6 +179,8 @@ index=threatintel threat_type=Threat_Actor
 \
 “APT-Shadow” was the only threat actor identified in the threat intelligence dataset and is classified as **High severity**.
 
+Please refer to image # 13 in the repository.
+
 
 **Visualization and panel**
 
@@ -184,6 +194,7 @@ A total of 10 threat intelligence indicators are currently being monitored. The 
 . What is the total volume of threat intelligence events?\
 The threat intelligence dataset contains 10 events.
 
+Please refer to images # 14, and 15  in the repository.
 
 **Report**
 
@@ -194,6 +205,8 @@ The threat intelligence dataset contains 10 events.
 Query:
 
 index=threatintel
+
+Please refer to image # 16 in the repository.
 
 **Dashboard**
 
@@ -212,6 +225,7 @@ The threat intelligence dataset contains 10 indicators available for monitoring,
 \
 The current threat landscape includes command-and-control infrastructure, malware distribution domains, phishing activity, botnet infrastructure, ransomware indicators, and threat actor infrastructure. The dataset contains both high-risk and critical-severity indicators, along with benign indicators used to distinguish legitimate activity from potentially malicious activity.
 
+Please refer to image # 17 in the repository.
 
 **Alert**
 
@@ -242,6 +256,8 @@ maliciousdomain.com (Malware Distribution Domain)\
 evil-c2.net (Known C2 Domain)\
 \
 The alert successfully identified known malicious indicators within the threat intelligence feed. These indicators are associated with high-risk and critical threats and should trigger analyst review, investigation, and continued monitoring for potential matches within network, DNS, firewall, TLS, and endpoint telemetry.
+
+Please refer to image # 18 in the repository.
 
 **Detection Rule**
 
@@ -277,6 +293,8 @@ APT-Shadow (Threat Actor Infrastructure)
 ABC123XYZ (Ransomware Sample)\
 \
 The detection rule successfully identified multiple high-risk and critical indicators within the threat intelligence feed. These indicators represent command-and-control infrastructure, malware distribution activity, phishing infrastructure, botnet activity, ransomware indicators, and threat actor infrastructure, all of which should be prioritized for monitoring and investigation.
+
+Please refer to images # 19 and 20 in the repository.
 
 
 **Threat Hunting**
@@ -340,6 +358,8 @@ fakebank-login.com (Credential Harvesting Site)\
 botnet-controller.net (Botnet Controller)\
 ABC123XYZ (Ransomware Sample)\
 APT-Shadow (Threat Actor Infrastructure)
+
+Please refer to image # 21 in the repository.
 
 **Analyst Assessment**
 
